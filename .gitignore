@@ -1,0 +1,7 @@
+node_modules/
+.idea
+.vscode
+src/**/*.js
+src/**/*.js.map
+.env
+build
