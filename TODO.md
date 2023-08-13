@@ -1,3 +1,4 @@
+```
 auth
     routes
           export * as AuthRoutes;
@@ -15,18 +16,19 @@ index.ts
         import helpers from "./routes"
         import middlewares from "./routes"
 
- export {routes, contoller, helper, middlewares}       
+ export {routes, contoller, helper, middlewares} 
+```      
 
  # Auth Routes
 
- POST auth/signup
- POST auth/login
- PATCH auth/forgot
- PUT auth/reset
+ * POST auth/signup
+ * POST auth/login
+ * PATCH auth/forgot
+ * PUT auth/reset
 
  # Profile Routes
 
- profile/:id
+ * profile/:id
  
 
 
