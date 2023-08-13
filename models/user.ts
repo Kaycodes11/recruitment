@@ -54,7 +54,9 @@ module.exports = (sequelize: any, DataTypes: any) => {
       fullName: {
         type: DataTypes.VIRTUAL,
         get() {
-          return `${this.firstName} ${this.lastName}`;
+          return `${this.getDataValue("firstName")} ${this.getDataValue(
+            "lastName"
+          )}`;
         },
         set(value: string) {
           throw new Error("Do not try to set the `fullName` value!");
@@ -69,7 +71,7 @@ module.exports = (sequelize: any, DataTypes: any) => {
         type: DataTypes.STRING,
         allowNull: false,
         set(value: string) {
-          this.setDataValue("password", bcrypt.hashSync(value, 12));
+          this.setDataValue("password", bcrypt.hashSync(value.toString(), 12));
         },
       },
       gender: {

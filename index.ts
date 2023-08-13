@@ -3,6 +3,7 @@ import db from "./models";
 import { users } from "./seeders/users";
 import { roles } from "./seeders/roles";
 import { userRoles } from "./seeders/userroles";
+import router from "./routes";
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -38,6 +39,13 @@ const seedUserRoles = () => {
 db.sequelize
   .sync()
   .then(() => {
+    // Middleware's
+    app.use(express.json());
+    
+    // Routes
+    app.use("/", router);
+    
+    // Init
     app.listen(PORT, () => console.log(`Server has connected to ${PORT}`));
   })
   .catch((error: any) => {
